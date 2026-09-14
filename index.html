@@ -1,0 +1,2567 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio Aura | Design de Interiores de Alto Padrão em São Paulo</title>
+  <meta name="description" content="Studio Aura por Marina Vasconcelos. Arquitetura de interiores residencial e corporativa de alto padrão. Luxo discreto, materiais nobres e sensibilidade espacial em São Paulo.">
+
+  <!-- Fontes de Alta Categoria Editorial -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- GSAP Core & ScrollTrigger (Animações de Alta Precisão) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+  <style>
+    /* ==========================================================================
+       DESIGN SYSTEM - STUDIO AURA (LUXO DISCRETO & ATMOSFERA EDITORIAL)
+       ========================================================================== */
+    :root {
+      /* Base Neutra e Superfícies Escuras */
+      --bg-void: #090A0B;
+      --bg-canvas: #0E1012;
+      --bg-surface: #14171A;
+      --bg-surface-elevated: #1B1E22;
+      --bg-overlay: rgba(14, 16, 18, 0.88);
+
+      /* Tipografia & Legibilidade */
+      --text-primary: #F5F3EF;
+      --text-secondary: #B8B3A8;
+      --text-muted: #7A766E;
+
+      /* Acento Ouro Champanhe e Bronze Nobre */
+      --gold-primary: #C5A880;
+      --gold-hover: #D8BD98;
+      --gold-light: #E8D9C5;
+      --gold-deep: #8E7453;
+      --gold-glow: rgba(197, 168, 128, 0.18);
+      --gold-border: rgba(197, 168, 128, 0.22);
+      --border-subtle: rgba(245, 243, 239, 0.08);
+
+      /* Tipografia */
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      /* Geometria Consistente */
+      --radius-sm: 4px;
+      --radius-md: 6px;
+      --radius-pill: 9999px;
+
+      /* Transições e Movimento */
+      --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-base: all 0.35s var(--ease-luxury);
+    }
+
+    /* Reset & Base */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 16px;
+      background-color: var(--bg-void);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    /* Container Padronizado */
+    .aura-container {
+      width: 100%;
+      max-width: 1320px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .aura-container {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+      }
+    }
+
+    /* Tipografia de Precisão */
+    h1, h2, h3, h4, .font-serif {
+      font-family: var(--font-display);
+      font-weight: 400;
+      letter-spacing: -0.015em;
+      line-height: 1.15;
+    }
+
+    .italic-serif {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 400;
+      padding-bottom: 2px;
+      margin-bottom: 2px;
+      display: inline-block;
+      line-height: 1.2;
+    }
+
+    /* Eyebrow Controlado (Máx 2 no documento todo) */
+    .eyebrow-luxury {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      color: var(--gold-primary);
+      margin-bottom: 1rem;
+      display: block;
+      font-weight: 500;
+    }
+
+    /* Botões & Ações Interativas */
+    .btn-gold {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      padding: 0.9rem 2.2rem;
+      background: var(--gold-primary);
+      color: #0E1012;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      border: 1px solid var(--gold-primary);
+      transition: var(--transition-base);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-hover);
+      border-color: var(--gold-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(197, 168, 128, 0.25);
+    }
+
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.65rem;
+      padding: 0.9rem 2.2rem;
+      background: rgba(14, 16, 18, 0.6);
+      color: var(--text-primary);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-radius: var(--radius-pill);
+      text-decoration: none;
+      border: 1px solid var(--border-subtle);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: var(--transition-base);
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold-primary);
+      color: var(--gold-light);
+      background: rgba(197, 168, 128, 0.08);
+      transform: translateY(-2px);
+    }
+
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      padding: 0.9rem 2.2rem;
+      background: #1F2821;
+      color: #72D28F;
+      border: 1px solid rgba(114, 210, 143, 0.3);
+      border-radius: var(--radius-pill);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: var(--transition-base);
+      white-space: nowrap;
+    }
+
+    .btn-whatsapp:hover {
+      background: #27352A;
+      border-color: #72D28F;
+      color: #92E8AA;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(114, 210, 143, 0.2);
+    }
+
+    /* Header e Navegação */
+    .header-aura {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 76px;
+      z-index: 100;
+      transition: background 0.4s var(--ease-luxury), border-color 0.4s var(--ease-luxury), backdrop-filter 0.4s var(--ease-luxury);
+    }
+
+    .header-aura.scrolled {
+      background: rgba(10, 11, 13, 0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .header-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand-logo {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+    }
+
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 1.55rem;
+      letter-spacing: 0.14em;
+      color: var(--text-primary);
+      text-transform: uppercase;
+      line-height: 1;
+    }
+
+    .brand-sub {
+      font-family: var(--font-body);
+      font-size: 0.58rem;
+      letter-spacing: 0.32em;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      margin-top: 0.25rem;
+      font-weight: 500;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2.2rem;
+      list-style: none;
+    }
+
+    .nav-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--gold-primary);
+      transition: width 0.3s var(--ease-luxury);
+    }
+
+    .nav-link:hover {
+      color: var(--text-primary);
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .mobile-menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: var(--text-primary);
+      cursor: pointer;
+      padding: 0.5rem;
+    }
+
+    /* Menu Mobile Drawer */
+    .mobile-drawer {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 100%;
+      max-width: 400px;
+      height: 100vh;
+      background: var(--bg-surface);
+      z-index: 150;
+      padding: 5rem 2.5rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-left: 1px solid var(--border-subtle);
+      transition: right 0.4s var(--ease-luxury);
+    }
+
+    .mobile-drawer.open {
+      right: 0;
+    }
+
+    .mobile-drawer-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(4px);
+      z-index: 140;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .mobile-drawer-overlay.open {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .mobile-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+    }
+
+    .mobile-nav-link {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      color: var(--text-primary);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .mobile-nav-link:hover {
+      color: var(--gold-primary);
+    }
+
+    .close-drawer-btn {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* ==========================================================================
+       HERO SECTION - CINEMÁTICA COM VÍDEO DE FUNDO
+       ========================================================================== */
+    .hero-section {
+      position: relative;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      padding-top: 76px;
+      padding-bottom: 2rem;
+      overflow: hidden;
+      background: var(--bg-void);
+    }
+
+    .hero-video-wrap {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .hero-video-wrap video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.42;
+      filter: saturate(0.85) contrast(1.1);
+      transform: scale(1.02);
+      transition: transform 12s ease-out;
+    }
+
+    .hero-video-scrim {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background:
+        radial-gradient(circle at 75% 35%, rgba(197, 168, 128, 0.08) 0%, transparent 60%),
+        linear-gradient(to top, var(--bg-canvas) 0%, rgba(10, 11, 13, 0.45) 45%, rgba(10, 11, 13, 0.85) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 860px;
+      padding-top: 1.5rem;
+    }
+
+    .hero-headline {
+      font-size: clamp(2.4rem, 5.5vw, 4.4rem);
+      font-weight: 300;
+      color: var(--text-primary);
+      margin-bottom: 1.25rem;
+      line-height: 1.08;
+    }
+
+    .hero-headline em {
+      font-family: var(--font-display);
+      font-style: italic;
+      color: var(--gold-primary);
+      font-weight: 400;
+    }
+
+    .hero-subtext {
+      font-size: clamp(1rem, 1.3vw, 1.125rem);
+      color: var(--text-secondary);
+      max-width: 52ch;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+      font-weight: 300;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .hero-controls {
+      position: absolute;
+      bottom: 2.2rem;
+      right: 2rem;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .sound-toggle-btn {
+      background: rgba(18, 20, 23, 0.7);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      padding: 0.55rem 1rem;
+      color: var(--text-secondary);
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      cursor: pointer;
+      backdrop-filter: blur(10px);
+      transition: var(--transition-base);
+    }
+
+    .sound-toggle-btn:hover {
+      color: var(--gold-primary);
+      border-color: var(--gold-border);
+    }
+
+    /* ==========================================================================
+       DISTINÇÃO & NÚMEROS EDITORIAIS (STRIP DISCRETO)
+       ========================================================================== */
+    .stats-strip {
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      background: var(--bg-surface);
+      padding: 2.5rem 0;
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 0 1.5rem;
+    }
+
+    .stat-item:not(:last-child) {
+      border-right: 1px solid var(--border-subtle);
+    }
+
+    .stat-value {
+      font-family: var(--font-display);
+      font-size: 2.75rem;
+      color: var(--gold-primary);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .stat-label {
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    /* ==========================================================================
+       BUILD SEQUENCE (SEÇÃO PINNED COM VÍDEO SINCRONIZADO E GSAP SCROLLTRIGGER)
+       ========================================================================== */
+    .build-sequence-section {
+      position: relative;
+      width: 100%;
+      background: var(--bg-void);
+      /* O GSAP ScrollTrigger cuidará do pinning e da altura de rolagem virtual */
+    }
+
+    .build-sequence-sticky {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at 50% 50%, #15181C 0%, #090A0B 100%);
+    }
+
+    .sequence-video-wrapper {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    .sequence-video-wrapper video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.76;
+      filter: contrast(1.08) brightness(1.05);
+      will-change: transform;
+    }
+
+    .sequence-video-scrim {
+      position: absolute;
+      inset: 0;
+      z-index: 2;
+      background:
+        radial-gradient(circle at 50% 48%, rgba(197, 168, 128, 0.18) 0%, rgba(197, 168, 128, 0.06) 42%, transparent 75%),
+        radial-gradient(circle at 50% 50%, rgba(9, 10, 11, 0.12) 0%, rgba(9, 10, 11, 0.72) 100%),
+        linear-gradient(to bottom, rgba(9, 10, 11, 0.82) 0%, transparent 18%, transparent 82%, rgba(9, 10, 11, 0.88) 100%);
+    }
+
+    .sequence-blocks-layer {
+      position: absolute;
+      top: 86px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: calc(100vh - 86px);
+      height: calc(100dvh - 86px);
+      z-index: 15;
+      pointer-events: none;
+      max-width: 1360px;
+      margin: 0 auto;
+    }
+
+    .sequence-block {
+      position: absolute;
+      width: min(90%, 430px);
+      background: rgba(14, 16, 18, 0.92);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius-md);
+      padding: 2rem 1.85rem;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+      pointer-events: auto;
+      will-change: transform, opacity;
+      opacity: 0;
+      visibility: hidden;
+      top: 50%;
+      transform: translateY(-50%);
+      max-height: calc(100vh - 120px);
+      overflow-y: auto;
+    }
+
+    .sequence-block.block-left {
+      left: clamp(1.5rem, 5vw, 5rem);
+    }
+
+    .sequence-block.block-right {
+      right: clamp(1.5rem, 5vw, 5rem);
+    }
+
+    .block-step-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.74rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      margin-bottom: 0.85rem;
+      font-weight: 600;
+    }
+
+    .block-order {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      color: var(--gold-primary);
+      line-height: 1;
+    }
+
+    .block-phase {
+      background: rgba(197, 168, 128, 0.12);
+      padding: 0.25rem 0.65rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(197, 168, 128, 0.25);
+    }
+
+    .block-title {
+      font-family: var(--font-display);
+      font-size: 1.75rem;
+      color: var(--text-primary);
+      line-height: 1.18;
+      margin-bottom: 0.85rem;
+    }
+
+    .block-text {
+      color: var(--text-secondary);
+      font-size: 0.94rem;
+      line-height: 1.65;
+      margin-bottom: 1.25rem;
+    }
+
+    .block-specs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 1rem;
+    }
+
+    .spec-pill {
+      font-size: 0.74rem;
+      letter-spacing: 0.05em;
+      color: var(--gold-light);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      padding: 0.35rem 0.75rem;
+      border-radius: var(--radius-pill);
+    }
+
+    @media (max-width: 1024px) {
+      .sequence-blocks-layer {
+        top: 80px;
+        height: calc(100dvh - 80px);
+      }
+
+      .sequence-block.block-left,
+      .sequence-block.block-right {
+        left: 1.25rem !important;
+        right: 1.25rem !important;
+        bottom: 2.5rem !important;
+        top: auto !important;
+        width: auto !important;
+        max-width: 500px !important;
+        margin: 0 auto !important;
+        transform: none !important;
+        padding: 1.5rem 1.35rem;
+      }
+
+      .block-title {
+        font-size: 1.35rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .block-text {
+        font-size: 0.85rem;
+        line-height: 1.5;
+        margin-bottom: 0.75rem;
+      }
+    }
+
+    /* ==========================================================================
+       PORTFÓLIO (PROJETOS EXCLUSIVOS COM DETALHES)
+       ========================================================================== */
+    .portfolio-section {
+      padding: 7.5rem 0;
+      background: var(--bg-void);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .portfolio-header {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 3.5rem;
+    }
+
+    .portfolio-title {
+      font-size: clamp(2.2rem, 4vw, 3.4rem);
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+
+    .portfolio-lead {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      max-width: 62ch;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+
+    .portfolio-filters {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .filter-btn {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-secondary);
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.55rem 1.25rem;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: var(--transition-base);
+    }
+
+    .filter-btn.active, .filter-btn:hover {
+      background: rgba(197, 168, 128, 0.12);
+      border-color: var(--gold-primary);
+      color: var(--gold-light);
+    }
+
+    /* Grid do Portfólio: Editorial e Dinâmico */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 2rem;
+    }
+
+    .project-card {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      transition: var(--transition-base);
+      cursor: pointer;
+    }
+
+    .project-card:hover {
+      border-color: var(--gold-border);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .project-card.col-span-8 {
+      grid-column: span 8;
+    }
+
+    .project-card.col-span-4 {
+      grid-column: span 4;
+    }
+
+    .project-card.col-span-6 {
+      grid-column: span 6;
+    }
+
+    .project-card.col-span-12 {
+      grid-column: span 12;
+    }
+
+    .project-media-wrap {
+      position: relative;
+      width: 100%;
+      height: 480px;
+      overflow: hidden;
+      background: #14171A;
+    }
+
+    .project-card.col-span-8 .project-media-wrap {
+      height: 540px;
+    }
+
+    .project-card.col-span-4 .project-media-wrap {
+      height: 540px;
+    }
+
+    .project-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      transition: transform 0.8s var(--ease-luxury), filter 0.8s var(--ease-luxury);
+      filter: brightness(0.92) contrast(1.04);
+    }
+
+    .project-card:hover .project-img {
+      transform: scale(1.04);
+      filter: brightness(1);
+    }
+
+    .project-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(14, 16, 18, 0.95) 0%, rgba(14, 16, 18, 0.3) 50%, transparent 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 2.2rem;
+      transition: opacity 0.3s ease;
+    }
+
+    .project-location {
+      font-size: 0.72rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--gold-primary);
+      margin-bottom: 0.4rem;
+      font-weight: 500;
+    }
+
+    .project-name {
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      color: var(--text-primary);
+      line-height: 1.15;
+      margin-bottom: 0.4rem;
+    }
+
+    .project-meta {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.4;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 0.8rem;
+      margin-top: 0.8rem;
+    }
+
+    .project-view-btn {
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .project-card:hover .project-view-btn {
+      color: var(--gold-primary);
+    }
+
+    /* Modal / Lightbox do Projeto */
+    .project-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      background: rgba(9, 10, 11, 0.92);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      opacity: 0;
+      transition: opacity 0.3s var(--ease-luxury);
+    }
+
+    .project-modal.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-dialog {
+      background: var(--bg-surface);
+      border: 1px solid var(--gold-border);
+      border-radius: var(--radius-md);
+      max-width: 1040px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+      position: relative;
+    }
+
+    .modal-media {
+      height: 100%;
+      min-height: 480px;
+      background: #000;
+      position: relative;
+    }
+
+    .modal-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .modal-content {
+      padding: 3rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .modal-close-btn {
+      position: absolute;
+      top: 1.25rem;
+      right: 1.25rem;
+      background: rgba(14, 16, 18, 0.7);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      color: var(--text-secondary);
+      width: 38px;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: var(--transition-base);
+      z-index: 10;
+    }
+
+    .modal-close-btn:hover {
+      color: var(--gold-primary);
+      border-color: var(--gold-primary);
+    }
+
+    /* ==========================================================================
+       SOBRE NÓS (MARINA VASCONCELOS & FILOSOFIA DO STUDIO)
+       ========================================================================== */
+    .about-section {
+      padding: 8rem 0;
+      background: var(--bg-canvas);
+      position: relative;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4.5rem;
+      align-items: center;
+    }
+
+    .about-image-column {
+      position: relative;
+    }
+
+    .about-photo-frame {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--gold-border);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+    }
+
+    .about-photo-frame img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      filter: contrast(1.05);
+    }
+
+    .about-caption-strip {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 0.76rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 0.75rem;
+    }
+
+    .about-text-column {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .about-title {
+      font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+      color: var(--text-primary);
+      margin-bottom: 1.5rem;
+      line-height: 1.15;
+    }
+
+    .about-quote {
+      font-family: var(--font-display);
+      font-size: 1.45rem;
+      font-style: italic;
+      color: var(--gold-light);
+      border-left: 2px solid var(--gold-primary);
+      padding-left: 1.5rem;
+      margin-bottom: 2rem;
+      line-height: 1.4;
+    }
+
+    .about-body-text {
+      color: var(--text-secondary);
+      font-size: 1rem;
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+      margin-bottom: 2.25rem;
+    }
+
+    .pillar-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 1.25rem;
+    }
+
+    .pillar-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      color: var(--gold-primary);
+      margin-bottom: 0.35rem;
+    }
+
+    .pillar-desc {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* ==========================================================================
+       DEPOIMENTOS (CLIENTES & COLECIONADORES)
+       ========================================================================== */
+    .testimonials-section {
+      padding: 7.5rem 0;
+      background: var(--bg-void);
+      border-top: 1px solid var(--border-subtle);
+    }
+
+    .testimonials-header {
+      text-align: center;
+      max-width: 650px;
+      margin: 0 auto 4rem auto;
+    }
+
+    .testimonials-title {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+
+    .testimonials-subtitle {
+      color: var(--text-secondary);
+      font-size: 1rem;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: var(--transition-base);
+    }
+
+    .testimonial-card:hover {
+      border-color: var(--gold-border);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+    }
+
+    .testimonial-quote-icon {
+      color: var(--gold-primary);
+      margin-bottom: 1.5rem;
+      opacity: 0.8;
+    }
+
+    .testimonial-text {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      line-height: 1.5;
+      color: var(--text-primary);
+      margin-bottom: 2rem;
+      font-weight: 300;
+    }
+
+    .testimonial-author {
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 1.25rem;
+    }
+
+    .author-name {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 0.2rem;
+    }
+
+    .author-role {
+      font-size: 0.78rem;
+      color: var(--gold-primary);
+      letter-spacing: 0.05em;
+    }
+
+    /* ==========================================================================
+       FORMULÁRIO DE CONTATO & WHATSAPP
+       ========================================================================== */
+    .contact-section {
+      padding: 8rem 0;
+      background: var(--bg-canvas);
+      border-top: 1px solid var(--border-subtle);
+      position: relative;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 4.5rem;
+    }
+
+    .contact-info-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .contact-heading {
+      font-size: clamp(2.2rem, 3.8vw, 3.4rem);
+      color: var(--text-primary);
+      margin-bottom: 1.25rem;
+      line-height: 1.1;
+    }
+
+    .contact-lead {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-details-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .contact-detail-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .detail-icon {
+      color: var(--gold-primary);
+      padding-top: 0.2rem;
+    }
+
+    .detail-title {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .detail-value {
+      color: var(--text-primary);
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .detail-value:hover {
+      color: var(--gold-primary);
+    }
+
+    .direct-whatsapp-card {
+      background: var(--bg-surface);
+      border: 1px solid rgba(114, 210, 143, 0.25);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .whatsapp-card-title {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: #92E8AA;
+    }
+
+    .whatsapp-card-desc {
+      font-size: 0.88rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    /* Formulário Estilizado */
+    .contact-form-col {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 3rem 2.5rem;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+    }
+
+    .form-group.col-span-2 {
+      grid-column: span 2;
+    }
+
+    .form-label {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      background: var(--bg-canvas);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem 1rem;
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 0.92rem;
+      transition: var(--transition-base);
+    }
+
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      outline: none;
+      border-color: var(--gold-primary);
+      box-shadow: 0 0 0 1px var(--gold-primary), 0 0 15px rgba(197, 168, 128, 0.15);
+      background: var(--bg-surface-elevated);
+    }
+
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    .form-feedback {
+      display: none;
+      margin-top: 1.25rem;
+      padding: 1rem;
+      border-radius: var(--radius-sm);
+      font-size: 0.88rem;
+      text-align: center;
+    }
+
+    .form-feedback.success {
+      display: block;
+      background: rgba(114, 210, 143, 0.15);
+      border: 1px solid rgba(114, 210, 143, 0.4);
+      color: #92E8AA;
+    }
+
+    /* ==========================================================================
+       RODAPÉ (FOOTER)
+       ========================================================================== */
+    .site-footer {
+      background: var(--bg-void);
+      border-top: 1px solid var(--border-subtle);
+      padding: 5rem 0 2.5rem 0;
+    }
+
+    .footer-top-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1.2fr;
+      gap: 3.5rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .footer-brand-col {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .footer-desc {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+      line-height: 1.6;
+      max-width: 32ch;
+    }
+
+    .footer-heading {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      color: var(--text-primary);
+      margin-bottom: 1.25rem;
+    }
+
+    .footer-nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .footer-nav-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.2s ease;
+    }
+
+    .footer-nav-link:hover {
+      color: var(--gold-primary);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 0.85rem;
+    }
+
+    .social-icon-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-surface);
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: var(--transition-base);
+    }
+
+    .social-icon-btn:hover {
+      border-color: var(--gold-primary);
+      color: var(--gold-primary);
+      transform: translateY(-2px);
+    }
+
+    .footer-bottom {
+      padding-top: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    /* ==========================================================================
+       RESPONSIVIDADE & AJUSTES MOBILE
+       ========================================================================== */
+    @media (max-width: 1024px) {
+      .process-showcase {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .project-card.col-span-8,
+      .project-card.col-span-4,
+      .project-card.col-span-6 {
+        grid-column: span 12;
+      }
+
+      .project-media-wrap,
+      .project-card.col-span-8 .project-media-wrap,
+      .project-card.col-span-4 .project-media-wrap {
+        height: 420px;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 3.5rem;
+      }
+
+      .footer-top-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem;
+      }
+
+      .modal-dialog {
+        grid-template-columns: 1fr;
+      }
+
+      .modal-media {
+        min-height: 320px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-links, .nav-actions .btn-outline {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: block;
+      }
+
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+      }
+
+      .stat-item:not(:last-child) {
+        border-right: none;
+        border-bottom: 1px solid var(--border-subtle);
+        padding-bottom: 1.75rem;
+      }
+
+      .form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .form-group.col-span-2 {
+        grid-column: span 1;
+      }
+
+      .footer-top-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .footer-bottom {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+
+      .hero-controls {
+        position: static;
+        margin-top: 1.5rem;
+      }
+    }
+
+    /* Redução de Movimento (Acessibilidade) */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .hero-video-wrap video {
+        transform: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+       HEADER & NAVEGAÇÃO PRINCIPAL
+       ========================================================================== -->
+  <header class="header-aura" id="mainHeader">
+    <div class="aura-container header-inner">
+      <a href="#inicio" class="brand-logo" aria-label="Studio Aura - Página Inicial">
+        <span class="brand-name">STUDIO AURA</span>
+        <span class="brand-sub">INTERIORES</span>
+      </a>
+
+      <nav aria-label="Navegação Principal">
+        <ul class="nav-links">
+          <li><a href="#processo" class="nav-link">Processo</a></li>
+          <li><a href="#portfolio" class="nav-link">Portfólio</a></li>
+          <li><a href="#sobre" class="nav-link">Sobre Nós</a></li>
+          <li><a href="#depoimentos" class="nav-link">Depoimentos</a></li>
+          <li><a href="#contato" class="nav-link">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <a href="#contato" class="btn-outline">Iniciar Projeto</a>
+        <button class="mobile-menu-btn" id="openMobileMenu" aria-label="Abrir menu de navegação">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="4" y1="8" x2="20" y2="8"></line>
+            <line x1="4" y1="16" x2="20" y2="16"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Drawer de Navegação Mobile -->
+  <div class="mobile-drawer-overlay" id="drawerOverlay"></div>
+  <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Menu móvel">
+    <button class="close-drawer-btn" id="closeMobileMenu" aria-label="Fechar menu">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+    <ul class="mobile-nav-list">
+      <li><a href="#processo" class="mobile-nav-link" onclick="closeDrawer()">Processo</a></li>
+      <li><a href="#portfolio" class="mobile-nav-link" onclick="closeDrawer()">Portfólio</a></li>
+      <li><a href="#sobre" class="mobile-nav-link" onclick="closeDrawer()">Sobre Nós</a></li>
+      <li><a href="#depoimentos" class="mobile-nav-link" onclick="closeDrawer()">Depoimentos</a></li>
+      <li><a href="#contato" class="mobile-nav-link" onclick="closeDrawer()">Contato</a></li>
+    </ul>
+    <div style="margin-top: 2rem;">
+      <a href="#contato" class="btn-gold" style="width: 100%;" onclick="closeDrawer()">Iniciar Projeto</a>
+    </div>
+  </div>
+
+  <main>
+    <!-- ==========================================================================
+         HERO SECTION: ABERTURA COM VÍDEO CINEMÁTICO DE FUNDO
+         ========================================================================== -->
+    <section class="hero-section" id="inicio">
+      <div class="hero-video-wrap">
+        <video id="heroVideo" autoplay muted loop playsinline preload="auto">
+          <source src="assets/interior-dark-video.mp4" type="video/mp4">
+          Seu navegador não suporta reprodução de vídeo.
+        </video>
+        <div class="hero-video-scrim"></div>
+      </div>
+
+      <div class="aura-container">
+        <div class="hero-content">
+          <!-- Eyebrow 1 de 2 permitidos no documento -->
+          <span class="eyebrow-luxury">Studio Aura · São Paulo</span>
+          
+          <h1 class="hero-headline">
+            Arquitetura de interiores guiada pelo <em>luxo discreto</em> e pela pureza da matéria.
+          </h1>
+
+          <p class="hero-subtext">
+            Projetos residenciais e corporativos de alto padrão concebidos como refúgios sensoriais atemporais na capital paulista.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#contato" class="btn-gold">Iniciar Projeto</a>
+            <a href="#portfolio" class="btn-outline">Explorar Portfólio</a>
+          </div>
+        </div>
+
+        <div class="hero-controls">
+          <button class="sound-toggle-btn" id="audioToggleBtn" aria-label="Alternar som do vídeo">
+            <svg id="volumeIcon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+              <line x1="23" y1="9" x2="17" y2="15"></line>
+              <line x1="17" y1="9" x2="23" y2="15"></line>
+            </svg>
+            <span id="volumeText">Vídeo Mudo</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         FAIXA DE DIFERENCIAIS EDITORIAIS
+         ========================================================================== -->
+    <section class="stats-strip" aria-label="Marcos do Studio Aura">
+      <div class="aura-container">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-value">12+</div>
+            <div class="stat-label">Anos de Prática Autoral em São Paulo</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">85+</div>
+            <div class="stat-label">Residências e Coberturas Exclusivas</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-value">100%</div>
+            <div class="stat-label">Curadoria Personalizada de Arte e Mobiliário</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         BUILD SEQUENCE: SEÇÃO PINNED COM VÍDEO SINCRONIZADO E GSAP SCROLLTRIGGER
+         ========================================================================== -->
+    <section class="build-sequence-section" id="processo" aria-label="Processo de Trabalho e Construção em Camadas">
+      <div class="build-sequence-sticky">
+        <!-- Vídeo das Camadas Sincronizado por Scroll -->
+        <div class="sequence-video-wrapper">
+          <video id="sequenceVideo" muted playsinline preload="auto">
+            <source src="assets/video-camadas.mp4" type="video/mp4">
+            Seu navegador não suporta vídeos HTML5.
+          </video>
+          <div class="sequence-video-scrim"></div>
+        </div>
+
+        <!-- Camada dos Três Blocos Alternados (Esquerda, Direita, Esquerda) -->
+        <div class="sequence-blocks-layer">
+          <!-- Bloco 1: Início (Esquerda) -->
+          <article class="sequence-block block-left" id="seqBlock1" aria-label="Etapa 1: Início">
+            <div class="block-step-badge">
+              <span class="block-order">01</span>
+              <span class="block-phase">Início · Concepção</span>
+            </div>
+            <h3 class="block-title">Imersão Sensorial & Diagnóstico</h3>
+            <p class="block-text">
+              Investigação aprofundada da incidência de luz natural, ventilação cruzada e das dinâmicas de convivência dos moradores antes do primeiro traço.
+            </p>
+            <div class="block-specs">
+              <span class="spec-pill">Insolação Solar</span>
+              <span class="spec-pill">Estudo Bioclimático</span>
+              <span class="spec-pill">Alinhamento de Rotinas</span>
+            </div>
+          </article>
+
+          <!-- Bloco 2: Meio (Direita) -->
+          <article class="sequence-block block-right" id="seqBlock2" aria-label="Etapa 2: Meio">
+            <div class="block-step-badge">
+              <span class="block-order">02</span>
+              <span class="block-phase">Meio · Estrutura</span>
+            </div>
+            <h3 class="block-title">Modelagem 3D & Camadas Construtivas</h3>
+            <p class="block-text">
+              Sobreposição tridimensional de infraestrutura, marcenaria de precisão milimétrica e volumetrias com estudo cênico da iluminação difusa.
+            </p>
+            <div class="block-specs">
+              <span class="spec-pill">Estrutura Tridimensional</span>
+              <span class="spec-pill">Marcenaria Oculta</span>
+              <span class="spec-pill">Luminotécnica Cênica</span>
+            </div>
+          </article>
+
+          <!-- Bloco 3: Fim (Esquerda) -->
+          <article class="sequence-block block-left" id="seqBlock3" aria-label="Etapa 3: Fim">
+            <div class="block-step-badge">
+              <span class="block-order">03</span>
+              <span class="block-phase">Fim · Materialização</span>
+            </div>
+            <h3 class="block-title">Curadoria & Materialização Fiel</h3>
+            <p class="block-text">
+              Seleção criteriosa de mobiliário assinado brasileiro, rochas nobres e acompanhamento rigoroso em obra para uma entrega milimétrica.
+            </p>
+            <div class="block-specs">
+              <span class="spec-pill">Design Autoral</span>
+              <span class="spec-pill">Mármores Raros</span>
+              <span class="spec-pill">Execução Impecável</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         PORTFÓLIO DE PROJETOS SELECIONADOS
+         ========================================================================== -->
+    <section class="portfolio-section" id="portfolio">
+      <div class="aura-container">
+        <div class="portfolio-header">
+          <h2 class="portfolio-title">Coleção de Obras Selecionadas</h2>
+          <p class="portfolio-lead">
+            Projetos que dialogam com a luz, o silêncio visual e a personalidade singular de cada cliente pelos bairros mais prestigiados de São Paulo.
+          </p>
+
+          <div class="portfolio-filters" role="group" aria-label="Filtrar por tipologia de projeto">
+            <button class="filter-btn active" data-filter="all">Todos os Projetos</button>
+            <button class="filter-btn" data-filter="social">Livings & Arte</button>
+            <button class="filter-btn" data-filter="privativo">Suítes & Spas</button>
+            <button class="filter-btn" data-filter="gourmet">Cozinhas & Convivência</button>
+          </div>
+        </div>
+
+        <div class="portfolio-grid">
+          <!-- Projeto 1: Residência Acervo (Grande Destaque) -->
+          <article class="project-card col-span-8" data-category="social" onclick="openProjectModal(0)">
+            <div class="project-media-wrap">
+              <img src="assets/projeto-sala.png" alt="Residência Acervo Jardins" class="project-img" loading="lazy">
+              <div class="project-overlay">
+                <span class="project-location">Jardins, São Paulo</span>
+                <h3 class="project-name">Residência Acervo</h3>
+                <div class="project-meta">
+                  <span>Living integrado com painéis em nogueira e mármore travertino</span>
+                  <span class="project-view-btn">Ver Projeto &rarr;</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Projeto 2: Biblioteca & Ateliê -->
+          <article class="project-card col-span-4" data-category="social" onclick="openProjectModal(1)">
+            <div class="project-media-wrap">
+              <img src="assets/projeto-biblioteca.png" alt="Biblioteca Alto de Pinheiros" class="project-img" loading="lazy">
+              <div class="project-overlay">
+                <span class="project-location">Alto de Pinheiros</span>
+                <h3 class="project-name">Ateliê & Biblioteca</h3>
+                <div class="project-meta">
+                  <span>Estante monumental em freijó</span>
+                  <span class="project-view-btn">Ver Projeto &rarr;</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Projeto 3: Cozinha Monolítica -->
+          <article class="project-card col-span-4" data-category="gourmet" onclick="openProjectModal(2)">
+            <div class="project-media-wrap">
+              <img src="assets/projeto-cozinha.png" alt="Cozinha Monolítica Cidade Jardim" class="project-img" loading="lazy">
+              <div class="project-overlay">
+                <span class="project-location">Cidade Jardim</span>
+                <h3 class="project-name">Cozinha Monolítica</h3>
+                <div class="project-meta">
+                  <span>Ilha em granito escovado e marcenaria oculta</span>
+                  <span class="project-view-btn">Ver Projeto &rarr;</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Projeto 4: Penthouse Faria Lima -->
+          <article class="project-card col-span-8" data-category="social" onclick="openProjectModal(3)">
+            <div class="project-media-wrap">
+              <img src="assets/projeto-sala-2.png" alt="Penthouse Faria Lima" class="project-img" loading="lazy">
+              <div class="project-overlay">
+                <span class="project-location">Itaim Bibi / Faria Lima</span>
+                <h3 class="project-name">Penthouse Faria Lima</h3>
+                <div class="project-meta">
+                  <span>Composição sóbria com iluminação difusa e mobiliário modernista</span>
+                  <span class="project-view-btn">Ver Projeto &rarr;</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Projeto 5: Suíte Master Bruma -->
+          <article class="project-card col-span-4" data-category="privativo" onclick="openProjectModal(4)">
+            <div class="project-media-wrap">
+              <img src="assets/projeto-quarto.png" alt="Suíte Master Morumbi" class="project-img" loading="lazy">
+              <div class="project-overlay">
+                <span class="project-location">Morumbi</span>
+                <h3 class="project-name">Suíte Master Bruma</h3>
+                <div class="project-meta">
+                  <span>Paleta envolvente de linho belga e iluminação indireta</span>
+                  <span class="project-view-btn">Ver Projeto &rarr;</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Projeto 6: Sala de Banho Nero -->
+          <article class="project-card col-span-4" data-category="privativo" onclick="openProjectModal(5)">
+            <div class="project-media-wrap">
+              <img src="assets/projeto-banheiro.png" alt="Sala de Banho Itaim" class="project-img" loading="lazy">
+              <div class="project-overlay">
+                <span class="project-location">Itaim Bibi</span>
+                <h3 class="project-name">Sala de Banho Nero</h3>
+                <div class="project-meta">
+                  <span>Mármore negro, metais champagne e atmosfera spa</span>
+                  <span class="project-view-btn">Ver Projeto &rarr;</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Projeto 7: Galeria Terracota -->
+          <article class="project-card col-span-4" data-category="social" onclick="openProjectModal(6)">
+            <div class="project-media-wrap">
+              <img src="assets/projeto-terracota.png" alt="Galeria Terracota Vila Nova Conceição" class="project-img" loading="lazy">
+              <div class="project-overlay">
+                <span class="project-location">Vila Nova Conceição</span>
+                <h3 class="project-name">Galeria Terracota</h3>
+                <div class="project-meta">
+                  <span>Tons terrosos e composições volumétricas de arte</span>
+                  <span class="project-view-btn">Ver Projeto &rarr;</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Modal de Detalhes do Projeto -->
+    <div class="project-modal" id="projectModal" role="dialog" aria-modal="true" aria-labelledby="modalProjectTitle">
+      <div class="modal-dialog">
+        <button class="modal-close-btn" onclick="closeProjectModal()" aria-label="Fechar detalhes do projeto">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+        <div class="modal-media">
+          <img id="modalProjectImg" src="" alt="Detalhe do projeto">
+        </div>
+        <div class="modal-content">
+          <div>
+            <span id="modalProjectLoc" class="project-location">Localização</span>
+            <h3 id="modalProjectTitle" class="project-name" style="font-size: 2.2rem; margin-bottom: 1rem;">Nome do Projeto</h3>
+            <p id="modalProjectDesc" class="about-body-text">Descrição detalhada do projeto de interiores.</p>
+            
+            <div style="margin-top: 1.5rem; border-top: 1px solid var(--border-subtle); padding-top: 1.25rem;">
+              <div style="font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold-primary); margin-bottom: 0.5rem; font-weight: 600;">Materiais em Evidência</div>
+              <p id="modalProjectMaterials" style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5;">Especificação de materiais e acabamentos.</p>
+            </div>
+          </div>
+          <div style="margin-top: 2rem;">
+            <a href="#contato" class="btn-gold" onclick="closeProjectModal()" style="width: 100%;">Solicitar Projeto Semelhante</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================================================
+         SOBRE NÓS: MARINA VASCONCELOS & FILOSOFIA DO STUDIO
+         ========================================================================== -->
+    <section class="about-section" id="sobre">
+      <div class="aura-container">
+        <div class="about-grid">
+          <!-- Foto Editorial da Arquiteta -->
+          <div class="about-image-column">
+            <div class="about-photo-frame">
+              <img src="assets/marina-vasconcelos.jpg" alt="Marina Vasconcelos, arquiteta e fundadora do Studio Aura" loading="lazy">
+            </div>
+            <div class="about-caption-strip">
+              <span>Marina Vasconcelos</span>
+              <span>Arquiteta & Fundadora</span>
+            </div>
+          </div>
+
+          <!-- Texto e Manifesto do Studio -->
+          <div class="about-text-column">
+            <!-- Eyebrow 2 de 2 permitidos no documento -->
+            <span class="eyebrow-luxury">A Fundadora</span>
+            
+            <h2 class="about-title">
+              Espaços que respiram silêncio, precisão e nobreza da matéria.
+            </h2>
+
+            <blockquote class="about-quote">
+              "O verdadeiro luxo não se impõe pelo excesso, mas pela harmonia serena de cada proporção e pela verdade de cada textura."
+            </blockquote>
+
+            <p class="about-body-text">
+              Formada pela Faculdade de Arquitetura e Urbanismo da USP com especialização em Milão, Marina Vasconcelos fundou o Studio Aura para atender uma clientela que busca sofisticação sem ostentação. Com mais de uma década de experiência no mercado paulistano de altíssimo padrão, seu trabalho se distingue pela investigação aprofundada dos materiais e pela curadoria atenta do design autoral brasileiro.
+            </p>
+
+            <p class="about-body-text">
+              Cada residência assinada pelo studio é tratada como uma galeria viva: um ambiente onde iluminação natural, texturas orgânicas e obras de arte convivem em perfeita ressonância funcional.
+            </p>
+
+            <div class="about-pillars-grid">
+              <div class="pillar-card">
+                <div class="pillar-title">Rigor Técnico</div>
+                <div class="pillar-desc">Detalhamento executivo impecável para uma materialização fiel e sem concessões em obra.</div>
+              </div>
+              <div class="pillar-card">
+                <div class="pillar-title">Sensibilidade Autoral</div>
+                <div class="pillar-desc">Composições personalizadas que rejeitam fórmulas pré-fabricadas e tendências efêmeras.</div>
+              </div>
+            </div>
+
+            <div>
+              <a href="#contato" class="btn-outline">Agendar Conversa com Marina</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         DEPOIMENTOS DE CLIENTES EXCLUSIVOS
+         ========================================================================== -->
+    <section class="testimonials-section" id="depoimentos">
+      <div class="aura-container">
+        <div class="testimonials-header">
+          <h2 class="testimonials-title">Vozes de Quem Habita Nossas Obras</h2>
+          <p class="testimonials-subtitle">
+            A percepção de clientes que confiaram ao Studio Aura a criação de seus refúgios mais preciosos.
+          </p>
+        </div>
+
+        <div class="testimonials-grid">
+          <article class="testimonial-card">
+            <div>
+              <div class="testimonial-quote-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.57-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
+                </svg>
+              </div>
+              <p class="testimonial-text">
+                “O Studio Aura transformou nossa cobertura em um refúgio acolhedor e poético. A atenção da Marina à iluminação e à marcenaria em nogueira superou qualquer expectativa.”
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-name">Dr. Henrique Silveira</div>
+              <div class="author-role">Proprietário, Cobertura nos Jardins</div>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <div>
+              <div class="testimonial-quote-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.57-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
+                </svg>
+              </div>
+              <p class="testimonial-text">
+                “Como colecionadora, precisava de um projeto que dialogasse com minhas obras de arte sem competir com elas. O equilíbrio alcançado pela equipe foi magistral.”
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-name">Beatriz Junqueira</div>
+              <div class="author-role">Curadora de Arte, Alto de Pinheiros</div>
+            </div>
+          </article>
+
+          <article class="testimonial-card">
+            <div>
+              <div class="testimonial-quote-icon">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.57-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
+                </svg>
+              </div>
+              <p class="testimonial-text">
+                “Impressiona a disciplina de prazo e a precisão do acompanhamento de obra. O resultado final possui a sofisticação discreta dos melhores hotéis boutique do mundo.”
+              </p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-name">Rafael Mendes de Almeida</div>
+              <div class="author-role">Investidor, Penthouse Itaim Bibi</div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================================
+         CONTATO & CONEXÃO DIRETA
+         ========================================================================== -->
+    <section class="contact-section" id="contato">
+      <div class="aura-container">
+        <div class="contact-grid">
+          <!-- Coluna de Informações e WhatsApp -->
+          <div class="contact-info-col">
+            <div>
+              <h2 class="contact-heading">Inicie Seu Projeto Conosco</h2>
+              <p class="contact-lead">
+                Desenvolvemos um número restrito de projetos por ano para assegurar dedicação autoral exclusiva e presença contínua em todas as etapas.
+              </p>
+
+              <div class="contact-details-list">
+                <div class="contact-detail-item">
+                  <div class="detail-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                      <circle cx="12" cy="10" r="3"></circle>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="detail-title">Endereço do Studio</div>
+                    <div class="detail-value">Rua Oscar Freire, 1420 - Jardins, São Paulo/SP</div>
+                  </div>
+                </div>
+
+                <div class="contact-detail-item">
+                  <div class="detail-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                      <polyline points="22,6 12,13 2,6"></polyline>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="detail-title">Correspondência Direta</div>
+                    <a href="mailto:contato@studioauradesign.com.br" class="detail-value">contato@studioauradesign.com.br</a>
+                  </div>
+                </div>
+
+                <div class="contact-detail-item">
+                  <div class="detail-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                    </svg>
+                  </div>
+                  <div>
+                    <div class="detail-title">Telefone & Atendimento</div>
+                    <a href="tel:+551130889200" class="detail-value">+55 (11) 3088-9200</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Card WhatsApp Direto -->
+            <div class="direct-whatsapp-card">
+              <div class="whatsapp-card-title">Atendimento Imediato via WhatsApp</div>
+              <p class="whatsapp-card-desc">
+                Caso prefira uma conversa ágil com nossa equipe de curadoria e projetos, fale conosco diretamente.
+              </p>
+              <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20Studio%20Aura.%20Gostaria%20de%20conversar%20sobre%20um%20projeto%20de%20design%20de%20interiores." target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                </svg>
+                Conversar pelo WhatsApp
+              </a>
+            </div>
+          </div>
+
+          <!-- Formulário de Contato -->
+          <div class="contact-form-col">
+            <form id="contactForm" onsubmit="handleFormSubmit(event)">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="clientName" class="form-label">Nome Completo *</label>
+                  <input type="text" id="clientName" class="form-input" placeholder="Ex: Fernanda Guimarães" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="clientEmail" class="form-label">E-mail Profissional ou Pessoal *</label>
+                  <input type="email" id="clientEmail" class="form-input" placeholder="Ex: fernanda@email.com" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="clientPhone" class="form-label">Telefone / WhatsApp *</label>
+                  <input type="tel" id="clientPhone" class="form-input" placeholder="Ex: (11) 98765-4321" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="projectType" class="form-label">Tipologia de Imóvel *</label>
+                  <select id="projectType" class="form-select" required>
+                    <option value="" disabled selected>Selecione a tipologia</option>
+                    <option value="apartamento">Apartamento de Alto Padrão</option>
+                    <option value="cobertura">Cobertura / Penthouse</option>
+                    <option value="residencia">Residência Unifamiliar</option>
+                    <option value="corporativo">Escritório Corporativo Boutique</option>
+                  </select>
+                </div>
+
+                <div class="form-group col-span-2">
+                  <label for="projectScope" class="form-label">Metragem e Localização Aproximada</label>
+                  <input type="text" id="projectScope" class="form-input" placeholder="Ex: 350 m² nos Jardins">
+                </div>
+
+                <div class="form-group col-span-2">
+                  <label for="clientMessage" class="form-label">Sobre o Seu Projeto *</label>
+                  <textarea id="clientMessage" class="form-textarea" placeholder="Compartilhe seus planos, prazos desejados ou referências do espaço..." required></textarea>
+                </div>
+              </div>
+
+              <button type="submit" class="btn-gold" style="width: 100%;">Enviar Solicitação de Projeto</button>
+
+              <div id="formFeedback" class="form-feedback">
+                Sua mensagem foi enviada com sucesso. Nossa equipe entrará em contato em até 24 horas úteis.
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+       RODAPÉ (FOOTER)
+       ========================================================================== -->
+  <footer class="site-footer">
+    <div class="aura-container">
+      <div class="footer-top-grid">
+        <!-- Marca & Visão -->
+        <div class="footer-brand-col">
+          <a href="#inicio" class="brand-logo" aria-label="Studio Aura - Página Inicial">
+            <span class="brand-name">STUDIO AURA</span>
+            <span class="brand-sub">INTERIORES</span>
+          </a>
+          <p class="footer-desc">
+            Escritório de arquitetura e design de interiores dedicado ao luxo discreto, materiais nobres e sensibilidade espacial em São Paulo.
+          </p>
+        </div>
+
+        <!-- Navegação Rápida -->
+        <div>
+          <div class="footer-heading">Navegação</div>
+          <ul class="footer-nav-list">
+            <li><a href="#inicio" class="footer-nav-link">Início</a></li>
+            <li><a href="#processo" class="footer-nav-link">Nosso Processo</a></li>
+            <li><a href="#portfolio" class="footer-nav-link">Obras Selecionadas</a></li>
+            <li><a href="#sobre" class="footer-nav-link">Sobre Marina Vasconcelos</a></li>
+            <li><a href="#depoimentos" class="footer-nav-link">Depoimentos</a></li>
+            <li><a href="#contato" class="footer-nav-link">Fale Conosco</a></li>
+          </ul>
+        </div>
+
+        <!-- Localização & Horários -->
+        <div>
+          <div class="footer-heading">Atendimento</div>
+          <p style="color: var(--text-secondary); font-size: 0.88rem; line-height: 1.6; margin-bottom: 1rem;">
+            Rua Oscar Freire, 1420<br>
+            Jardins, São Paulo - SP<br>
+            01426-001
+          </p>
+          <p style="color: var(--text-muted); font-size: 0.82rem;">
+            Reuniões presenciais ou virtuais mediante agendamento prévio.
+          </p>
+        </div>
+
+        <!-- Redes Sociais & Contato -->
+        <div>
+          <div class="footer-heading">Redes Sociais</div>
+          <div class="social-links" style="margin-bottom: 1.5rem;">
+            <!-- Instagram -->
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Instagram do Studio Aura">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+              </svg>
+            </a>
+            <!-- Pinterest -->
+            <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="Pinterest do Studio Aura">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="12" y1="4" x2="12" y2="20"></line>
+                <path d="M18 10a6 6 0 0 0-12 0c0 4 3 6 3 9"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+            </a>
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="social-icon-btn" aria-label="LinkedIn da fundadora">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                <rect x="2" y="9" width="4" height="12"></rect>
+                <circle cx="4" cy="4" r="2"></circle>
+              </svg>
+            </a>
+          </div>
+          <span style="font-size: 0.8rem; color: var(--gold-primary);">CAU/SP nº 148293-8</span>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 Studio Aura Design de Interiores. Todos os direitos reservados.</div>
+        <div>Arquitetura de Interiores & Curadoria Autoral · São Paulo</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       JAVASCRIPT INLINE: INTERATIVIDADE, VÍDEO & EXPERIÊNCIA
+       ========================================================================== -->
+  <script>
+    // Dados Completos dos Projetos para o Lightbox Editorial
+    const projectsData = [
+      {
+        title: "Residência Acervo",
+        location: "Jardins, São Paulo",
+        image: "assets/projeto-sala.png",
+        desc: "Uma residência de 480 m² desenhada para valorizar a luz filtrada da tarde e acolher a coleção de arte moderna da família. A transição entre os ambientes sociais ocorre através de pórticos revestidos em lâminas naturais de nogueira americana, contrapondo-se ao piso em mármore travertino navona bruto.",
+        materials: "Nogueira americana natural, mármore travertino navona levigado, tecidos em linho cru e mobiliário assinado por Sergio Rodrigues e Jorge Zalszupin."
+      },
+      {
+        title: "Ateliê & Biblioteca",
+        location: "Alto de Pinheiros, São Paulo",
+        image: "assets/projeto-biblioteca.png",
+        desc: "Ambiente reservado para contemplação, leitura e pesquisa. A estante foi desenhada com montantes metálicos delgados em banho bronze e prateleiras em freijó maciço, criando ritmo e profundidade sem pesar no visual do ambiente.",
+        materials: "Madeira freijó brasileira com acabamento acetinado, perfis de aço escovado com banho bronze antiquado e iluminação perimetral linear difusa."
+      },
+      {
+        title: "Cozinha Monolítica",
+        location: "Cidade Jardim, São Paulo",
+        image: "assets/projeto-cozinha.png",
+        desc: "Conceito de cozinha oculta e acolhedora integrada ao espaço social. A grande bancada em ilha funciona como bloco escultural de preparo e degustação, enquanto os eletrodomésticos e áreas de despensa desaparecem por trás de portas camarão mimetizadas.",
+        materials: "Granito preto absoluto escovado fosco, marcenaria laqueada em tom fendi escuro e metais com acabamento bronze suave."
+      },
+      {
+        title: "Penthouse Faria Lima",
+        location: "Itaim Bibi / Faria Lima, São Paulo",
+        image: "assets/projeto-sala-2.png",
+        desc: "Cobertura duplex contemporânea pensada para um empresário de tecnologia. Linhas limpas e rigor geométrico equilibram o conforto sensorial através de tapetes de tear manual e um sofisticado sistema de iluminação dimerizável que redefine a atmosfera ao entardecer.",
+        materials: "Painéis ripados em carvalho ebanizado, pedras naturais brasileiras, couro conhaque e obras de arte geométrica."
+      },
+      {
+        title: "Suíte Master Bruma",
+        location: "Morumbi, São Paulo",
+        image: "assets/projeto-quarto.png",
+        desc: "Dormitório projetado como um santuário de descanso absoluto. A cabeceira estofada contínua abraça a parede principal com linho belga natural, apoiada por mesinhas de cabeceira em balanço e arandelas de leitura em latão fosco.",
+        materials: "Linho belga texturizado, assoalho de madeira maciça cumaru, tapeçaria de lã orgânica e controle automatizado de persianas e iluminação."
+      },
+      {
+        title: "Sala de Banho Nero",
+        location: "Itaim Bibi, São Paulo",
+        image: "assets/projeto-banheiro.png",
+        desc: "Banheiro master inspirado nas salas termais de hotéis boutique europeus. Cuba esculpida em bloco maciço de mármore e chuveiro de teto com cromoterapia suave proporcionam uma experiência diária de spa particular.",
+        materials: "Mármore nero marquina com veios dourados pontuais, metais escovados em tom champanhe fosco e vidro canelado fumê."
+      },
+      {
+        title: "Galeria Terracota",
+        location: "Vila Nova Conceição, São Paulo",
+        image: "assets/projeto-terracota.png",
+        desc: "Hall e living de entrada com volumetria inspirada em elementos cerâmicos ancestrais. Paredes com textura mineral exclusiva acolhem esculturas contemporâneas sob feixes de luz direcionados com precisão milimétrica.",
+        materials: "Argamassa mineral artesanal em tom terracota desidratado, pedra sabão esculpida e iluminação pontual de galeria."
+      }
+    ];
+
+    // Scroll Navbar Effect
+    const header = document.getElementById('mainHeader');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    }, { passive: true });
+
+    // Drawer Mobile
+    const openMenuBtn = document.getElementById('openMobileMenu');
+    const closeMenuBtn = document.getElementById('closeMobileMenu');
+    const drawer = document.getElementById('mobileDrawer');
+    const overlay = document.getElementById('drawerOverlay');
+
+    function openDrawer() {
+      drawer.classList.add('open');
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeDrawer() {
+      drawer.classList.remove('open');
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    openMenuBtn.addEventListener('click', openDrawer);
+    closeMenuBtn.addEventListener('click', closeDrawer);
+    overlay.addEventListener('click', closeDrawer);
+
+    // Controle de Som do Hero Vídeo
+    const heroVideo = document.getElementById('heroVideo');
+    const audioBtn = document.getElementById('audioToggleBtn');
+    const volumeText = document.getElementById('volumeText');
+
+    audioBtn.addEventListener('click', () => {
+      if (heroVideo.muted) {
+        heroVideo.muted = false;
+        volumeText.textContent = "Áudio Ativo";
+        audioBtn.style.color = "var(--gold-primary)";
+      } else {
+        heroVideo.muted = true;
+        volumeText.textContent = "Vídeo Mudo";
+        audioBtn.style.color = "";
+      }
+    });
+
+    // ==========================================================================
+    // GSAP SCROLLTRIGGER - BUILD SEQUENCE CONTROLLER
+    // ==========================================================================
+    gsap.registerPlugin(ScrollTrigger);
+
+    function initBuildSequence() {
+      const video = document.getElementById('sequenceVideo');
+      const section = document.getElementById('processo');
+      if (!video || !section) return;
+
+      // Garantir que o vídeo esteja pausado e mudo para permitir scrubbing puro via scroll
+      video.pause();
+      video.muted = true;
+
+      // Usar matchMedia para tratar responsividade e acessibilidade (prefers-reduced-motion)
+      const mm = gsap.matchMedia();
+
+      mm.add({
+        isDesktop: "(min-width: 1025px)",
+        isMobile: "(max-width: 1024px)",
+        reduceMotion: "(prefers-reduced-motion: reduce)",
+        allowMotion: "(prefers-reduced-motion: no-preference)"
+      }, (context) => {
+        const { reduceMotion, isDesktop } = context.conditions;
+
+        if (reduceMotion) {
+          // Acessibilidade: sem pinning ou scroll-hijack
+          gsap.set(["#seqBlock1", "#seqBlock2", "#seqBlock3"], {
+            autoAlpha: 1,
+            y: 0,
+            x: 0,
+            position: "static",
+            marginBottom: "2rem"
+          });
+          return;
+        }
+
+        // Timeline mestre pinada na seção "process-section" (id="processo")
+        const buildTimeline = gsap.timeline({
+          scrollTrigger: {
+            trigger: section,
+            start: "top top",
+            end: "+=2800", // Distância de scroll para percorrer toda a construção
+            pin: true,
+            scrub: 0.8, // Scrubbing suave e responsivo
+            anticipatePin: 1,
+            invalidateOnRefresh: true
+          }
+        });
+
+        // Proxy para avanço dos frames do vídeo sincronizado com a rolagem
+        const videoProxy = { time: 0 };
+        const duration = (video.duration && !isNaN(video.duration) && video.duration > 0.5) ? video.duration : 8;
+
+        // O avanço do vídeo percorre a timeline inteira (duração normalizada de 10s)
+        buildTimeline.to(videoProxy, {
+          time: duration - 0.05,
+          ease: "none",
+          duration: 10,
+          onUpdate: () => {
+            if (video.readyState >= 1) {
+              video.currentTime = videoProxy.time;
+            }
+          }
+        }, 0);
+
+        // Configuração inicial dos 3 blocos
+        const xDist = isDesktop ? 50 : 0;
+        const yDist = isDesktop ? 0 : 25;
+
+        gsap.set(["#seqBlock1", "#seqBlock2", "#seqBlock3"], {
+          autoAlpha: 0,
+          yPercent: isDesktop ? -50 : 0
+        });
+
+        gsap.set("#seqBlock1", {
+          x: -xDist,
+          y: isDesktop ? 0 : yDist
+        });
+        gsap.set("#seqBlock2", {
+          x: xDist,
+          y: isDesktop ? 0 : yDist
+        });
+        gsap.set("#seqBlock3", {
+          x: -xDist,
+          y: isDesktop ? 0 : yDist
+        });
+
+        // BLOCO 1 (INÍCIO - ESQUERDA)
+        // Aparece suavemente no início (0.4s a 1.3s), permanece até 2.4s e desaparece até 3.2s
+        buildTimeline.to("#seqBlock1", {
+          autoAlpha: 1,
+          x: 0,
+          y: 0,
+          duration: 0.9,
+          ease: "power2.out"
+        }, 0.4)
+        .to("#seqBlock1", {
+          autoAlpha: 0,
+          x: -xDist * 0.6,
+          duration: 0.8,
+          ease: "power2.in"
+        }, 2.4);
+
+        // BLOCO 2 (MEIO - DIREITA)
+        // Aparece suavemente no meio (3.6s a 4.5s), permanece até 5.8s e desaparece até 6.6s
+        buildTimeline.to("#seqBlock2", {
+          autoAlpha: 1,
+          x: 0,
+          y: 0,
+          duration: 0.9,
+          ease: "power2.out"
+        }, 3.6)
+        .to("#seqBlock2", {
+          autoAlpha: 0,
+          x: xDist * 0.6,
+          duration: 0.8,
+          ease: "power2.in"
+        }, 5.8);
+
+        // BLOCO 3 (FIM - ESQUERDA)
+        // Aparece suavemente no fim (7.0s a 7.9s), permanece até 9.1s e conclui até 9.8s
+        buildTimeline.to("#seqBlock3", {
+          autoAlpha: 1,
+          x: 0,
+          y: 0,
+          duration: 0.9,
+          ease: "power2.out"
+        }, 7.0)
+        .to("#seqBlock3", {
+          autoAlpha: 0,
+          x: -xDist * 0.6,
+          duration: 0.8,
+          ease: "power2.in"
+        }, 9.1);
+
+        // Atualizar ScrollTrigger quando o vídeo carregar os metadados
+        if (video.readyState < 1) {
+          video.addEventListener('loadedmetadata', () => {
+            ScrollTrigger.refresh();
+          }, { once: true });
+        }
+      });
+    }
+
+    // Inicializar quando o DOM estiver pronto
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initBuildSequence);
+    } else {
+      initBuildSequence();
+    }
+
+    // Filtro do Portfólio
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filterValue = btn.getAttribute('data-filter');
+
+        projectCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filterValue === 'all' || category === filterValue) {
+            card.style.display = '';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 50);
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(10px)';
+            setTimeout(() => {
+              card.style.display = 'none';
+            }, 300);
+          }
+        });
+      });
+    });
+
+    // Lightbox Modal de Detalhes do Projeto
+    const projectModal = document.getElementById('projectModal');
+    const modalImg = document.getElementById('modalProjectImg');
+    const modalTitle = document.getElementById('modalProjectTitle');
+    const modalLoc = document.getElementById('modalProjectLoc');
+    const modalDesc = document.getElementById('modalProjectDesc');
+    const modalMaterials = document.getElementById('modalProjectMaterials');
+
+    function openProjectModal(index) {
+      const data = projectsData[index];
+      if (!data) return;
+
+      modalImg.src = data.image;
+      modalImg.alt = data.title;
+      modalTitle.textContent = data.title;
+      modalLoc.textContent = data.location;
+      modalDesc.textContent = data.desc;
+      modalMaterials.textContent = data.materials;
+
+      projectModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeProjectModal() {
+      projectModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Fechar modal ao clicar fora ou com tecla Escape
+    projectModal.addEventListener('click', (e) => {
+      if (e.target === projectModal) {
+        closeProjectModal();
+      }
+    });
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && projectModal.classList.contains('active')) {
+        closeProjectModal();
+      }
+    });
+
+    // Envio Elegante do Formulário de Contato
+    function handleFormSubmit(event) {
+      event.preventDefault();
+
+      const form = document.getElementById('contactForm');
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const feedback = document.getElementById('formFeedback');
+
+      const originalBtnText = submitBtn.textContent;
+      submitBtn.textContent = "Processando Solicitação...";
+      submitBtn.disabled = true;
+
+      // Simulação de envio com feedback sofisticado
+      setTimeout(() => {
+        submitBtn.textContent = originalBtnText;
+        submitBtn.disabled = false;
+        feedback.classList.add('success');
+        form.reset();
+
+        setTimeout(() => {
+          feedback.classList.remove('success');
+        }, 8000);
+      }, 1200);
+    }
+  </script>
+</body>
+</html>
