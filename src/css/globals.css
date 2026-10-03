@@ -1,0 +1,63 @@
+ *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+:root {
+      --bg-void: #090A0B;
+      --bg-canvas: #0E1012;
+      --bg-surface: #14171A;
+      --bg-surface-elevated: #1B1E22;
+      --bg-overlay: rgba(14, 16, 18, 0.88);
+
+      --text-primary: #F5F3EF;
+      --text-secondary: #B8B3A8;
+      --text-muted: #7A766E;
+
+      --gold-primary: #C5A880;
+      --gold-hover: #D8BD98;
+      --gold-light: #E8D9C5;
+      --gold-deep: #8E7453;
+      --gold-glow: rgba(197, 168, 128, 0.18);
+      --gold-border: rgba(197, 168, 128, 0.22);
+      --border-subtle: rgba(245, 243, 239, 0.08);
+
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+
+      --radius-sm: 4px;
+      --radius-md: 6px;
+      --radius-pill: 9999px;
+
+      --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
+      --transition-base: all 0.35s var(--ease-luxury);
+    }
+
+    html {
+      font-size: 16px;
+      background-color: var(--bg-void);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-primary);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    .aura-container {
+      width: 100%;
+      max-width: 1320px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+   
