@@ -1268,3 +1268,62 @@
       color: var(--text-muted);
       font-size: 0.8rem;
     }
+
+    .btn-full-width {
+      width: 100%;
+    }
+
+    .audio-playing-icon {
+      display: none;
+    }
+
+    .modal-project-title {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+
+    .modal-materials {
+      margin-top: 1.5rem;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 1.25rem;
+    }
+
+    .modal-materials-title {
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--gold-primary);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .modal-materials-description {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.5;
+    }
+
+    .modal-cta {
+      margin-top: 2rem;
+    }
+
+    .footer-address {
+      color: var(--text-secondary);
+      font-size: 0.88rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .footer-appointment-note {
+      color: var(--text-muted);
+      font-size: 0.82rem;
+    }
+
+    .footer-social-links {
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-registration {
+      font-size: 0.8rem;
+      color: var(--gold-primary);
+    }

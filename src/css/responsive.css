@@ -3,7 +3,7 @@
          padding-left: 1.25rem;
          padding-right: 1.25rem;
      }
- 
+
      .sequence-blocks-layer {
          top: 80px;
          height: calc(100dvh - 80px);
@@ -144,6 +144,27 @@
          width: 100%;
          justify-content: center;
          margin-top: 3.5rem;
+     }
+
+     .mobile-drawer-cta {
+         width: 100%;
+         max-width: 280px;
+         margin-top: 0;
+     }
+
+     .mobile-drawer.open {
+         padding-top: 0;
+         padding-bottom: 0;
+         justify-content: flex-start;
+         gap: 5rem;
+     }
+
+     .mobile-drawer.open .mobile-nav-list {
+         margin-top: 5rem;
+     }
+
+     .btn-gold {
+         margin-bottom: 1rem;
      }
  }
 
@@ -318,5 +339,26 @@
 
      .hero-video-wrap video {
          transform: none !important;
+     }
+ }
+
+ @media (max-width: 1024px) {
+     .pin-spacer:has(> #processo) {
+         width: 100% !important;
+         margin-inline: auto !important;
+     }
+
+     .pin-spacer:has(> #processo)>#processo {
+         width: 100%;
+         margin-inline: auto;
+     }
+
+     #processo .sequence-block.block-left,
+     #processo .sequence-block.block-right {
+         left: 1.25rem;
+         right: 1.25rem;
+         width: calc(100% - 2.5rem);
+         max-width: 500px;
+         margin-inline: auto;
      }
  }

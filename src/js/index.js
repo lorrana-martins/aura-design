@@ -140,7 +140,7 @@
         reduceMotion: "(prefers-reduced-motion: reduce)",
         allowMotion: "(prefers-reduced-motion: no-preference)"
       }, (context) => {
-        const { reduceMotion, isDesktop } = context.conditions;
+        const { reduceMotion, isDesktop, isMobile } = context.conditions;
 
         if (reduceMotion) {
           // Acessibilidade: sem pinning ou scroll-hijack
@@ -159,9 +159,9 @@
           scrollTrigger: {
             trigger: section,
             start: "top top",
-            end: "+=2800", // Distância de scroll para percorrer toda a construção
+            end: isMobile ? "+=1800" : "+=2800",
             pin: true,
-            scrub: 1.2, // Suaviza o acompanhamento da animação ao scroll
+            scrub: isMobile ? 0.6 : 1.2,
             anticipatePin: 1,
             invalidateOnRefresh: true
           }
